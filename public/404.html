@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    const l = window.location;
+    const base = '/web';
+    const path = l.pathname.replace(base, '') || '/';
+    const query = l.search ? '&q=' + encodeURIComponent(l.search.slice(1)) : '';
+    l.replace(base + '/?p=' + encodeURIComponent(path) + query + l.hash);
+  </script>
+</head>
+<body></body>
+</html>
