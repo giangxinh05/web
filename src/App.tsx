@@ -12,6 +12,8 @@ import './App.css'
 
 const Contact = lazy(() => import('./pages/Contact'))
 const ProjectDetail = lazy(() => import('./pages/projects/ProjectDetail'))
+const VRLanguageLink = lazy(() => import('./pages/projects/VRLanguageLink'))
+const YuriTutor = lazy(() => import('./pages/projects/YuriTutor'))
 
 const Projects = lazy(() => import('./components/section/Projects'))
 const Experience = lazy(() => import('./components/section/Experience'))
@@ -65,6 +67,8 @@ function AppContent() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/projects/yuri-tutor" element={<YuriTutor />} />
+              <Route path="/projects/vr-language-link" element={<VRLanguageLink />} />
               <Route path="/projects/:id" element={<ProjectDetail />} />
             </Routes>
           </Suspense>

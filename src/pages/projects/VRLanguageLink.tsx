@@ -1,195 +1,217 @@
+import { ArrowLeft, CalendarDays, Clock3, Layers3, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useDarkMode } from '../../contexts/DarkModeContext';
 import { useThemeColors } from '../../hooks/useThemeColors';
-import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import vrApp from '../../assets/vr_ll_app.png';
 import vr360 from '../../assets/vr_ll_360.png';
 import vrStudio from '../../assets/vr_ll_studio.png';
 import vrProcess from '../../assets/vr_ll_process.png';
 
+const researchFindings = [
+  {
+    title: 'Limited onboarding time',
+    text: 'New sales staff had little time to build product knowledge before handling detailed questions from parents.',
+  },
+  {
+    title: 'Gaps in customer conversations',
+    text: 'Staff reported difficulty handling objections, negative feedback and customers who were reluctant to share their real needs.',
+  },
+  {
+    title: 'Need for flexible practice',
+    text: 'The team wanted realistic case-based learning that could fit around daily sales and customer-service responsibilities.',
+  },
+];
+
+const curriculum = [
+  ['01', 'Customer psychology', 'Discover needs, build trust, communicate clearly and manage emotion.'],
+  ['02', 'Persuasion', 'Handle objections, present value, listen actively and negotiate.'],
+  ['03', 'Time management', 'Plan work, prioritise leads, reduce distractions and review performance.'],
+  ['04', 'Problem solving', 'Analyse issues, develop options, act on feedback and learn from failure.'],
+];
+
+const scenarios = [
+  'Tuition fees exceed the parent’s budget',
+  'The parent compares Language Link with a lower-priced competitor',
+  'The available class schedule does not fit the learner',
+  'The learner is already enrolled at another centre',
+  'The learner is disengaged or the parent is not ready to decide',
+];
+
+const process = [
+  ['01', 'Field research', 'Interviewed the centre manager and sales team and reviewed the existing training approach.'],
+  ['02', 'Needs analysis', 'Mapped performance gaps, work pressures and the situations staff found hardest to handle.'],
+  ['03', 'Learning architecture', 'Defined four competency areas and a two-month, 20-video learning path.'],
+  ['04', 'Scenario design', 'Turned recurring parent objections into five realistic branching conversations.'],
+  ['05', 'Scriptwriting', 'Wrote effective and ineffective response paths with feedback for each decision.'],
+  ['06', '360° production', 'Recorded role-play scenes from an immersive learner viewpoint using an Insta360 camera.'],
+  ['07', 'Post-production', 'Stitched and edited the footage in Insta360 Studio and a mobile video editor.'],
+  ['08', 'Interactive build', 'Published the scenes in ThingLink and added choices, branches and immediate feedback.'],
+  ['09', 'Review & handoff', 'Documented the solution, evaluated its limitations and prepared it for organisational use.'],
+];
+
 const VRLanguageLink = () => {
   const { isDarkMode } = useDarkMode();
   const themeColors = useThemeColors();
 
-  const cardBg = isDarkMode ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.9)';
+  const pageBg = isDarkMode ? '#101727' : '#fdf6f9';
+  const cardBg = isDarkMode ? 'rgba(255,255,255,0.045)' : 'rgba(255,255,255,0.92)';
   const cardBorder = isDarkMode ? 'rgba(253,213,223,0.15)' : themeColors.colors.pink[100];
-  const heading = isDarkMode ? themeColors.colors.pink[300] : themeColors.colors.pink[500];
-  const body = isDarkMode ? themeColors.colors.dark[200] : themeColors.colors.dark[600];
-  const muted = isDarkMode ? themeColors.colors.dark[300] : themeColors.colors.dark[500];
-
-  const stack = [
-    { label: 'Camera', value: 'Insta360 X3' },
-    { label: 'Editing', value: 'Insta360 Studio 2021' },
-    { label: 'Video editor', value: 'CapCut' },
-    { label: 'Publishing', value: 'Thinglink (branching interactions)' },
-    { label: 'Methodology', value: 'Instructional Design · Branching Scenario' },
-  ];
-
-  const outcomes = [
-    { emoji: '🎯', text: '5 branching VR360 scenarios simulating real sales objections — pricing concerns, competitor comparison, scheduling conflicts' },
-    { emoji: '📈', text: 'Post-training survey showed measurable improvement in staff confidence and consultation effectiveness' },
-    { emoji: '💼', text: 'Program subsequently licensed to Unikorm JSC for commercial use' },
-    { emoji: '⏱️', text: 'Reduced employee training time by 33% compared to the previous in-person format' },
-  ];
-
-  const process = [
-    { step: '01', title: 'Khảo sát', desc: 'Conducted needs analysis through direct surveys and interviews with sales staff and team leads.' },
-    { step: '02', title: 'Phân tích nhu cầu', desc: 'Identified 4 core skill gaps: customer psychology, persuasion, time management, and problem-solving.' },
-    { step: '03', title: 'Xây dựng khung chương trình', desc: 'Designed a 2-month blended online training program comprising 20 short-form videos (8–12 min each) across 4 thematic modules.' },
-    { step: '04', title: 'Xây dựng kịch bản đào tạo', desc: 'Wrote branching scenario scripts for each VR360 scene — each presenting an optimal and suboptimal response path.' },
-    { step: '05', title: 'Quay video', desc: 'Produced immersive 360° scenario videos using an Insta360 X3 camera in real office environments.' },
-    { step: '06', title: 'Biên tập video', desc: 'Edited in Insta360 Studio and CapCut; stitched, color-corrected, and exported equirectangular footage.' },
-    { step: '07', title: 'Triển khai trực tiếp', desc: 'Published on Thinglink with branching interactions — giving learners immediate feedback on their choices.' },
-    { step: '08', title: 'Thu kết quả', desc: 'Collected post-training survey data from the 10-person sales team.' },
-    { step: '09', title: 'Tổng hợp & Đánh giá', desc: 'Synthesized results, documented outcomes, and prepared the program for commercial licensing.' },
-  ];
+  const heading = isDarkMode ? themeColors.colors.pink[300] : themeColors.colors.pink[600];
+  const body = isDarkMode ? themeColors.colors.dark[200] : themeColors.colors.dark[700];
+  const muted = isDarkMode ? themeColors.colors.dark[400] : themeColors.colors.dark[500];
 
   return (
-    <div
-      className="min-h-screen transition-colors duration-300"
-      style={{ backgroundColor: isDarkMode ? '#101727' : '#fdf6f9', color: isDarkMode ? '#f3e8ff' : '#4a2040' }}
-    >
-      <div className="max-w-4xl mx-auto px-6 py-12">
-<Link
-          to="/"
-          className="inline-flex items-center gap-2 mb-8 text-sm hover:opacity-70 transition-opacity"
-          style={{ color: themeColors.colors.pink[400] }}
-        >
+    <main className="min-h-screen transition-colors duration-300" style={{ backgroundColor: pageBg }}>
+      <div className="max-w-5xl mx-auto px-5 md:px-8 py-12">
+        <Link to="/" className="inline-flex items-center gap-2 mb-10 text-sm hover:opacity-70 transition-opacity" style={{ color: heading }}>
           <ArrowLeft className="h-4 w-4" /> Back to Portfolio
         </Link>
-<div className="flex items-start gap-4 mb-4">
-          <span className="text-5xl mt-1">🥽</span>
+
+        <header className="max-w-4xl">
+          <p className="text-xs font-bold tracking-[0.2em] uppercase mb-3" style={{ color: heading }}>Learning Experience Design Case Study</p>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight" style={{ color: heading }}>
+            Immersive Sales Training for Language Link
+          </h1>
+          <p className="text-lg md:text-xl mt-5 leading-relaxed" style={{ color: body }}>
+            A research-led online training programme that uses branching VR360 scenarios to help education sales staff practise difficult parent conversations in a safe environment.
+          </p>
+        </header>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-8">
+          {[
+            [Users, 'Audience', '10 staff members'],
+            [CalendarDays, 'Duration', '2-month programme'],
+            [Layers3, 'Curriculum', '4 themes · 20 videos'],
+            [Clock3, 'Format', '8–12 min modules'],
+          ].map(([Icon, label, value]) => {
+            const StatIcon = Icon as typeof Users;
+            return (
+              <div key={label as string} className="rounded-xl p-4" style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}>
+                <StatIcon className="h-5 w-5 mb-3" style={{ color: heading }} />
+                <p className="text-xs uppercase tracking-wider" style={{ color: muted }}>{label as string}</p>
+                <p className="text-sm font-semibold mt-1" style={{ color: body }}>{value as string}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        <figure className="mt-10 rounded-2xl overflow-hidden" style={{ border: `1px solid ${cardBorder}`, backgroundColor: cardBg }}>
+          <img src={vr360} alt="A 360-degree role-play recording at Language Link Ha Dong" className="w-full object-cover" />
+          <figcaption className="text-xs px-4 py-3" style={{ color: muted }}>A VR360 role-play scene recorded in the Language Link Hà Đông office.</figcaption>
+        </figure>
+
+        <section className="mt-14 grid md:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
           <div>
-            <h1 className="text-4xl font-bold" style={{ color: heading }}>
-              VR/AR Language Link Training
-            </h1>
-            <p className="text-lg mt-1" style={{ color: muted }}>
-              Instructional Design · VR360 · Thinglink · 2024
+            <p className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: heading }}>The Challenge</p>
+            <h2 className="text-3xl font-bold mt-2" style={{ color: heading }}>Make practice realistic without interrupting the workday</h2>
+          </div>
+          <div className="space-y-4 text-sm md:text-base leading-relaxed" style={{ color: body }}>
+            <p>Language Link Hà Đông already combined classroom instruction with role-play, but continuous recruitment and a busy sales schedule limited the time available for structured practice.</p>
+            <p>Newer staff were expected to understand several course pathways while responding confidently to pricing concerns, scheduling conflicts, complaints and hesitant parents. The brief was therefore not simply to digitise existing material, but to create repeatable practice that felt close to a real consultation.</p>
+          </div>
+        </section>
+
+        <section className="mt-14">
+          <p className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: heading }}>Research</p>
+          <h2 className="text-3xl font-bold mt-2 mb-6" style={{ color: heading }}>What the field study revealed</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            {researchFindings.map((finding) => (
+              <article key={finding.title} className="rounded-2xl p-5" style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}>
+                <h3 className="font-bold" style={{ color: heading }}>{finding.title}</h3>
+                <p className="text-sm leading-relaxed mt-2" style={{ color: body }}>{finding.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl p-6 md:p-8" style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}>
+          <p className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: heading }}>My Contribution</p>
+          <h2 className="text-3xl font-bold mt-2" style={{ color: heading }}>From needs analysis to an interactive prototype</h2>
+          <p className="mt-4 leading-relaxed" style={{ color: body }}>
+            Working in a two-person university project team, I contributed across the full learning-design cycle: field research, training-needs analysis, curriculum planning, scenario and dialogue writing, 360° recording, video editing, interactive authoring and final evaluation. The work connected instructional design decisions with a tangible media product rather than stopping at a training proposal.
+          </p>
+        </section>
+
+        <section className="mt-14">
+          <p className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: heading }}>Learning Architecture</p>
+          <h2 className="text-3xl font-bold mt-2 mb-6" style={{ color: heading }}>Four skills, designed as short practice cycles</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {curriculum.map(([number, title, text]) => (
+              <article key={number} className="rounded-2xl p-5 flex gap-4" style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}>
+                <span className="text-sm font-bold shrink-0" style={{ color: heading }}>{number}</span>
+                <div>
+                  <h3 className="font-bold" style={{ color: heading }}>{title}</h3>
+                  <p className="text-sm mt-1 leading-relaxed" style={{ color: body }}>{text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-14 grid lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <p className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: heading }}>Experience Design</p>
+            <h2 className="text-3xl font-bold mt-2" style={{ color: heading }}>Branch, respond, receive feedback</h2>
+            <p className="mt-4 leading-relaxed" style={{ color: body }}>
+              Each VR scene places the learner inside a parent consultation. At a decision point, the learner chooses between an empathetic, solution-oriented response and a weaker response such as dismissing the concern or pushing for an immediate sale. ThingLink then reveals the consequence and explains how to improve.
             </p>
-            <div className="flex flex-wrap gap-2 mt-3">
-              {['Insta360', 'Thinglink', 'CapCut', 'Instructional Design', 'Branching Scenario'].map(tag => (
-                <span
-                  key={tag}
-                  className="text-xs px-3 py-1 rounded-full font-medium"
-                  style={{
-                    backgroundColor: isDarkMode ? 'rgba(253,213,223,0.12)' : themeColors.colors.pink[50],
-                    color: heading,
-                    border: `1px solid ${cardBorder}`,
-                  }}
-                >
-                  {tag}
-                </span>
+            <ul className="mt-5 space-y-2 text-sm" style={{ color: body }}>
+              {scenarios.map((scenario) => <li key={scenario} className="flex gap-2"><span style={{ color: heading }}>●</span>{scenario}</li>)}
+            </ul>
+          </div>
+          <figure className="rounded-2xl overflow-hidden" style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}>
+            <img src={vrApp} alt="Mobile video editing application used in the production workflow" className="w-full object-contain bg-white" />
+            <figcaption className="text-xs px-4 py-3" style={{ color: muted }}>Mobile editing supported the short-form training-video workflow.</figcaption>
+          </figure>
+        </section>
+
+        <section className="mt-14">
+          <p className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: heading }}>Process</p>
+          <h2 className="text-3xl font-bold mt-2 mb-6" style={{ color: heading }}>A nine-step production workflow</h2>
+          <figure className="rounded-2xl overflow-hidden mb-6" style={{ backgroundColor: '#fff', border: `1px solid ${cardBorder}` }}>
+            <img src={vrProcess} alt="Nine-step Language Link training development process" className="w-full object-contain" />
+          </figure>
+          <div className="grid md:grid-cols-3 gap-3">
+            {process.map(([number, title, text]) => (
+              <article key={number} className="rounded-xl p-4" style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}>
+                <p className="text-xs font-bold" style={{ color: heading }}>{number}</p>
+                <h3 className="font-semibold mt-2" style={{ color: heading }}>{title}</h3>
+                <p className="text-xs leading-relaxed mt-2" style={{ color: body }}>{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-14 grid md:grid-cols-2 gap-6 items-center">
+          <figure className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#fff', border: `1px solid ${cardBorder}` }}>
+            <img src={vrStudio} alt="Insta360 Studio used for stitching and editing 360-degree footage" className="w-full object-contain" />
+          </figure>
+          <div>
+            <p className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: heading }}>Toolchain</p>
+            <h2 className="text-3xl font-bold mt-2" style={{ color: heading }}>A lightweight immersive-media stack</h2>
+            <p className="mt-4 leading-relaxed" style={{ color: body }}>Insta360 hardware captured the scenes, Insta360 Studio handled stitching and export, a mobile editor supported post-production, and ThingLink delivered the branching interactions and learner feedback.</p>
+            <div className="flex flex-wrap gap-2 mt-5">
+              {['Insta360', '360° video', 'ThingLink', 'Branching scenarios', 'Instructional design'].map((tag) => (
+                <span key={tag} className="text-xs px-3 py-1.5 rounded-full" style={{ color: heading, border: `1px solid ${cardBorder}` }}>{tag}</span>
               ))}
             </div>
           </div>
-        </div>
-<div className="mt-8 rounded-2xl overflow-hidden" style={{ border: `1px solid ${cardBorder}` }}>
-          <img
-            src={vr360}
-            alt="360° recording session at Language Link Hà Đông"
-            className="w-full object-cover"
-            style={{ maxHeight: '380px', objectPosition: 'center' }}
-          />
-          <p className="text-xs text-center py-2" style={{ color: muted }}>
-            360° recording session at Language Link Hà Đông office
-          </p>
-        </div>
-<div className="mt-8 rounded-2xl p-6" style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}>
-          <h2 className="text-xl font-bold mb-3" style={{ color: heading }}>Problem</h2>
-          <p className="text-sm leading-relaxed" style={{ color: body }}>
-            Language Link Hà Đông's 10-person sales team struggled with <strong>low consultation conversion rates</strong> due to
-            insufficient soft skills training — specifically in customer psychology, persuasion, and objection handling.
-            Traditional training lacked realistic practice scenarios and failed to engage learners effectively.
-          </p>
-        </div>
-<div className="mt-8">
-          <h2 className="text-xl font-bold mb-2" style={{ color: heading }}>Process</h2>
-          <p className="text-sm mb-5" style={{ color: muted }}>Quy trình xây dựng kế hoạch đào tạo — 9 bước</p>
-<div className="rounded-2xl overflow-hidden mb-6" style={{ border: `1px solid ${cardBorder}` }}>
-            <img
-              src={vrProcess}
-              alt="9-step training development process"
-              className="w-full object-contain bg-white"
-              style={{ maxHeight: '320px' }}
-            />
-          </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {process.map((p) => (
-              <div
-                key={p.step}
-                className="rounded-xl p-4"
-                style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <span
-                    className="text-xs font-bold px-2 py-0.5 rounded-full"
-                    style={{ backgroundColor: themeColors.colors.pink[500], color: '#fff' }}
-                  >
-                    {p.step}
-                  </span>
-                  <span className="text-sm font-semibold" style={{ color: heading }}>{p.title}</span>
-                </div>
-                <p className="text-xs leading-relaxed" style={{ color: body }}>{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-<div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-<div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${cardBorder}` }}>
-            <img
-              src={vrStudio}
-              alt="Insta360 Studio editing interface"
-              className="w-full object-cover"
-              style={{ maxHeight: '220px', objectPosition: 'center top' }}
-            />
-            <div className="p-3" style={{ backgroundColor: cardBg }}>
-              <p className="text-xs font-semibold" style={{ color: heading }}>Insta360 Studio 2021</p>
-              <p className="text-xs mt-1" style={{ color: muted }}>360° stitching, stabilisation & export</p>
-            </div>
-          </div>
-<div className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${cardBorder}` }}>
-            <div
-              className="w-full flex items-center justify-center"
-              style={{ height: '220px', backgroundColor: isDarkMode ? 'rgba(255,255,255,0.03)' : '#f7f0f3' }}
-            >
-              <img
-                src={vrApp}
-                alt="CapCut app icon — used for video editing"
-                style={{ width: '120px', height: '120px', objectFit: 'contain' }}
-              />
-            </div>
-            <div className="p-3" style={{ backgroundColor: cardBg }}>
-              <p className="text-xs font-semibold" style={{ color: heading }}>CapCut</p>
-              <p className="text-xs mt-1" style={{ color: muted }}>Short-form video editing & module production</p>
-            </div>
-          </div>
-        </div>
-<div className="mt-8 rounded-2xl p-6" style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}>
-          <h2 className="text-xl font-bold mb-4" style={{ color: heading }}>Outcomes</h2>
-          <div className="space-y-3">
-            {outcomes.map((o, i) => (
-              <div key={i} className="flex gap-3 text-sm">
-                <span className="text-xl shrink-0">{o.emoji}</span>
-                <p style={{ color: body }}>{o.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-<div className="mt-8 rounded-2xl p-6" style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}>
-          <h2 className="text-xl font-bold mb-4" style={{ color: heading }}>Stack</h2>
-          <div className="space-y-2">
-            {stack.map((t, i) => (
-              <div key={i} className="flex gap-3 text-sm">
-                <span className="font-semibold shrink-0 w-36" style={{ color: heading }}>{t.label}</span>
-                <span style={{ color: body }}>{t.value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
+        <section className="mt-14 grid md:grid-cols-2 gap-5">
+          <article className="rounded-2xl p-6" style={{ background: `linear-gradient(135deg, ${themeColors.colors.pink[500]}22, ${themeColors.colors.pink[300]}11)`, border: `1px solid ${themeColors.colors.pink[300]}44` }}>
+            <p className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: heading }}>Outcome</p>
+            <h2 className="text-2xl font-bold mt-2" style={{ color: heading }}>A complete, reusable training concept</h2>
+            <p className="text-sm leading-relaxed mt-3" style={{ color: body }}>The team completed the soft-skills curriculum and an interactive VR360 training prototype. The project was also connected with Unikorm JSC to explore organisational and commercial use.</p>
+          </article>
+          <article className="rounded-2xl p-6" style={{ backgroundColor: cardBg, border: `1px solid ${cardBorder}` }}>
+            <p className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: heading }}>Reflection</p>
+            <h2 className="text-2xl font-bold mt-2" style={{ color: heading }}>What I would validate next</h2>
+            <p className="text-sm leading-relaxed mt-3" style={{ color: body }}>The field-study window and access to staff were limited, and the first prototype’s interactivity was intentionally simple. A next iteration should pilot with a larger cohort and measure confidence, scenario performance, complaint handling and sales conversion before and after training.</p>
+          </article>
+        </section>
       </div>
-    </div>
+    </main>
   );
 };
 

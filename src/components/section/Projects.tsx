@@ -16,8 +16,8 @@ const defaultProjects: Project[] = [
   {
     id: 'yuri-tutor',
     title: 'Yuri Tutor 🌸',
-    description: 'PWA web app for private tutors — lesson reports, auto tuition calculation, parent communication & AI-powered student progress analysis. No build step, Firebase RTDB backend.',
-    technologies: ['Vanilla JS', 'Firebase RTDB', 'Anthropic API', 'PWA', 'VietQR'],
+    description: 'A connected toolkit for private tutors and parents, combining lesson reports, rubric-based analytics, schedules, tuition management and real-time communication.',
+    technologies: ['Vanilla JS', 'Firebase RTDB', 'Learning Analytics', 'PWA', 'VietQR'],
     avatarUrl: comingSoon,
     githubUrl: socialLinks.repositories.projectOne,
     demoUrl: '',
@@ -26,9 +26,9 @@ const defaultProjects: Project[] = [
   },
   {
     id: 'vr-language-link',
-    title: 'VR/AR Language Link Training',
-    description: 'Upgraded a staff training program for Language Link by integrating VR 360. Deployed a virtual reality training module that reduced employee training time by 33%.',
-    technologies: ['VR/AR', 'Instructional Design', '360 Video', 'LMS'],
+    title: 'Immersive Sales Training for Language Link',
+    description: 'Research-led online training for education sales staff, combining a four-part soft-skills curriculum with branching VR360 customer scenarios.',
+    technologies: ['Learning Experience Design', 'VR360', 'ThingLink', 'Branching Scenarios'],
     avatarUrl: comingSoon,
     githubUrl: socialLinks.repositories.projectTwo,
     demoUrl: '',
