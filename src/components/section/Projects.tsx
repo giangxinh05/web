@@ -37,9 +37,9 @@ const defaultProjects: Project[] = [
   },
   {
     id: 'emotion-robot',
-    title: 'Emotion Tracking Robot',
-    description: "Led an international team in Shibaura Institute of Technology's gPBL program to build a real-time emotion tracking robot for classroom interaction and lecture quality evaluation.",
-    technologies: ['Team Leadership', 'Hardware', 'gPBL', 'Emotion AI'],
+    title: 'EMORO Emotion Monitoring Robot',
+    description: "An international gPBL prototype combining an IoT robot, edge computing and YOLOv7-based facial-emotion estimation for classroom scenarios.",
+    technologies: ['IoT Robotics', 'YOLOv7', 'Edge Computing', 'International gPBL'],
     avatarUrl: comingSoon,
     githubUrl: socialLinks.repositories.projectThree,
     demoUrl: 'https://youtu.be/GNY7fwvFQQM?si=POJMe5yib7BouZDi',

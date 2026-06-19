@@ -14,6 +14,7 @@ const Contact = lazy(() => import('./pages/Contact'))
 const ProjectDetail = lazy(() => import('./pages/projects/ProjectDetail'))
 const VRLanguageLink = lazy(() => import('./pages/projects/VRLanguageLink'))
 const YuriTutor = lazy(() => import('./pages/projects/YuriTutor'))
+const EmotionTrackingRobot = lazy(() => import('./pages/projects/EmotionTrackingRobot'))
 
 const Projects = lazy(() => import('./components/section/Projects'))
 const Experience = lazy(() => import('./components/section/Experience'))
@@ -69,6 +70,7 @@ function AppContent() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects/yuri-tutor" element={<YuriTutor />} />
               <Route path="/projects/vr-language-link" element={<VRLanguageLink />} />
+              <Route path="/projects/emotion-robot" element={<EmotionTrackingRobot />} />
               <Route path="/projects/:id" element={<ProjectDetail />} />
             </Routes>
           </Suspense>
